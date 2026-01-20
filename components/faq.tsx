@@ -4,28 +4,28 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "When was Jaldi Pay founded?",
-    answer: "Jaldi Pay was founded to provide fast, secure, and transparent money transfer services to Bangladesh from around the world."
+    question: "What is Jaldi Pay?",
+    answer: "Jaldi Pay is a fast, secure, and transparent money transfer service that lets you send money to over 50 countries worldwide, including the UAE, Singapore, Malaysia, Saudi Arabia, and more."
   },
   {
     question: "What services does Jaldi Pay offer?",
-    answer: "Jaldi Pay offers instant money transfers to Bangladesh, with support for bank accounts and mobile wallets like bKash. We provide real-time exchange rates and transparent fee structures."
+    answer: "We offer instant money transfers with support for bank accounts and mobile wallets. You get real-time exchange rates, transparent fee structures, and 24/7 customer support."
   },
   {
-    question: "Who can use Jaldi Pay?",
-    answer: "Anyone looking to send money to Bangladesh can use Jaldi Pay. Our service is available to users in multiple countries including UAE, Malaysia, Saudi Arabia, and more."
+    question: "Which countries can I send money to?",
+    answer: "You can send money to destinations across the Middle East (UAE, Saudi Arabia, Qatar, Kuwait), Southeast Asia (Singapore, Malaysia, Indonesia), South Asia, and many more regions."
   },
   {
     question: "Is Jaldi Pay safe?",
     answer: "Yes, Jaldi Pay is fully regulated and uses bank-level security to protect your transactions. We implement digital KYC verification to ensure safe and legal transfers."
   },
   {
-    question: "How do I benefit from Jaldi Pay?",
-    answer: "You benefit from competitive exchange rates, low fees, instant transfers, and 24/7 customer support. Your recipients can receive money directly in their bank accounts or mobile wallets."
+    question: "What are the benefits of using Jaldi Pay?",
+    answer: "You get competitive exchange rates, low fees, instant transfers, and 24/7 customer support. Recipients can receive money directly in their bank accounts or mobile wallets."
   },
   {
     question: "How do I get started?",
-    answer: "Getting started is easy! Simply sign up with your Google account, complete the quick verification process, and you can start sending money to Bangladesh right away."
+    answer: "Getting started is easy! Simply sign up with your Google account, complete a quick verification process, and you can start sending money globally right away."
   }
 ];
 

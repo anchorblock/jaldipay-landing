@@ -9,13 +9,16 @@ export default function Footer() {
             <span className="text-xl font-bold text-[#0A3700]">
               Jaldi Pa<span className="text-[#9EE86F]">y</span>
             </span>
+            <p className="mt-2 text-sm text-gray-600">
+              Global money transfers made simple
+            </p>
           </div>
 
           {/* Business */}
           <div>
             <h4 className="mb-3 font-medium text-[#0A3700]">Business</h4>
             <a
-              href="mailto:faruk@anchorblock.vc"
+              href="mailto:info@anchorblock.vc"
               className="text-gray-600 hover:text-[#0A3700] transition"
             >
               info@anchorblock.vc
@@ -26,10 +29,10 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 font-medium text-[#0A3700]">Contact</h4>
             <a
-              href="tel:+8801623000792"
+              href="mailto:support@jaldipay.com"
               className="text-gray-600 hover:text-[#0A3700] transition"
             >
-              +880 1623-000792
+              support@jaldipay.com
             </a>
           </div>
 
@@ -37,22 +40,6 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 font-medium text-[#0A3700]">Socials</h4>
             <ul className="flex items-center gap-4">
-              {/* <li>
-                <a
-                  className="flex items-center justify-center text-[#0A3700] transition hover:text-[#9EE86F]"
-                  href="https://x.com/JaldiPay"
-                  aria-label="Twitter"
-                >
-                  <svg
-                    className="h-5 w-5 fill-current"
-                    href="https://www.linkedin.com/company/anchorblock/"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z" />
-                  </svg>
-                </a>
-              </li> */}
               <li>
                 <a
                   className="flex items-center justify-center text-[#0A3700] transition hover:text-[#9EE86F]"

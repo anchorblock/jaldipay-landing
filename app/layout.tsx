@@ -39,8 +39,8 @@ const nacelle = localFont({
 });
 
 export const metadata = {
-  title: "JaldiPay",
-  description: "Fast Money Transfers to Bangladesh",
+  title: "JaldiPay - Global Money Transfers",
+  description: "Fast, secure money transfers to 50+ countries. Send to UAE, Singapore, Malaysia, Saudi Arabia and more with competitive rates.",
 };
 
 export default function RootLayout({

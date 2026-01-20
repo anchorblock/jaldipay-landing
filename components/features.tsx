@@ -1,7 +1,6 @@
 import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
-import FeaturesImage from "@/public/images/features.png";
 
 export default function Features() {
   return (
@@ -61,11 +60,11 @@ export default function Features() {
                 Instant Money Transfers
               </h3>
               <p className="text-base text-green-200/65">
-                The primary service is a "Fast Pay" (Jaldi Pay) system that allows you to send money from your host country directly to your family or business associates in Bangladesh.
+                Send money instantly to over 50 countries. Our fast transfer system ensures your funds reach your family or business partners within minutes, not days.
               </p>
             </article>
 
-            {/* Send to Mobile Wallets */}
+            {/* Send to Bank & Mobile Wallets */}
             <article className="relative flex flex-col p-6 bg-gray-900/50 rounded-2xl backdrop-blur-sm">
               <div className="mb-6 inline-flex items-center justify-center rounded-xl bg-green-500/10 p-3">
                 <svg
@@ -77,10 +76,10 @@ export default function Features() {
                 </svg>
               </div>
               <h3 className="mb-3 font-nacelle text-xl font-semibold text-gray-200">
-                Send to Mobile Wallets (bKash)
+                Bank Accounts & Mobile Wallets
               </h3>
               <p className="text-base text-green-200/65">
-                Instead of making your family travel to a physical bank, the app is built to send money directly into their bKash mobile wallets. This allows them to receive and use the money instantly for daily needs.
+                Send directly to bank accounts or popular mobile wallets in the destination country. Recipients can access funds instantly for their daily needs.
               </p>
             </article>
 
@@ -99,7 +98,7 @@ export default function Features() {
                 Transparent Currency Exchange
               </h3>
               <p className="text-base text-green-200/65">
-                The platform provides real-time exchange rates. You can see exactly how much your Dirhams (AED), Ringgits (MYR), or Riyals (SAR) will be worth in Bangladeshi Taka (BDT) before you hit send, ensuring there are no hidden surprises.
+                Real-time exchange rates with full transparency. See exactly how much your money will be worth before you send—no hidden fees or surprises.
               </p>
             </article>
 
@@ -118,7 +117,7 @@ export default function Features() {
                 Simple and Secure Sign-In
               </h3>
               <p className="text-base text-green-200/65">
-                You don't need to remember a complicated new password. The app allows you to sign in securely using your existing Google account, making it easy to get started while keeping your financial information protected.
+                No complicated passwords needed. Sign in securely using your existing Google account, making it easy to get started while keeping your financial information protected.
               </p>
             </article>
 
@@ -137,7 +136,7 @@ export default function Features() {
                 Verified Safety (Digital KYC)
               </h3>
               <p className="text-base text-green-200/65">
-                To keep the community safe and comply with international laws, the app includes a built-in "ID check." It guides you through a quick process to verify your identity using your documents, ensuring that every transaction is legal and secure.
+                Keep your transactions safe and compliant with international regulations. Our quick digital verification process ensures every transfer is secure and legal.
               </p>
             </article>
 
@@ -156,7 +155,7 @@ export default function Features() {
                 24/7 Digital Access
               </h3>
               <p className="text-base text-green-200/65">
-                Since the platform is available via a mobile-friendly website and app, you can send money at any time—whether you are at home, at work, or on the go—without ever needing to visit a physical exchange house.
+                Send money anytime, anywhere. Our mobile-friendly platform is available around the clock—no need to visit a physical exchange office.
               </p>
             </article>
           </div>

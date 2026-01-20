@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "JaldiPay",
-  description: "Fast Money Transfers to Bangladesh",
+  title: "JaldiPay - Global Money Transfers",
+  description: "Fast, secure money transfers to 50+ countries including UAE, Singapore, Malaysia, and more.",
 };
 
 import Hero from "@/components/hero-home";
