@@ -18,10 +18,10 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 font-medium text-[#0A3700]">Business</h4>
             <a
-              href="mailto:info@anchorblock.vc"
+              href="mailto:faruk@anchorblock.vc"
               className="text-gray-600 hover:text-[#0A3700] transition"
             >
-              info@anchorblock.vc
+              faruk@anchorblock.vc
             </a>
           </div>
 
@@ -29,10 +29,10 @@ export default function Footer() {
           <div>
             <h4 className="mb-3 font-medium text-[#0A3700]">Contact</h4>
             <a
-              href="mailto:support@jaldipay.com"
+              
               className="text-gray-600 hover:text-[#0A3700] transition"
             >
-              support@jaldipay.com
+              +880 1623000792
             </a>
           </div>
 
@@ -68,11 +68,11 @@ export default function Footer() {
 
             {/* Links */}
             <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-              <a href="#" className="text-gray-600 hover:text-[#0A3700] transition">
-                Privacy Center
+              <a href="/contact" className="text-gray-600 hover:text-[#0A3700] transition">
+                Contact Us
               </a>
               <span className="text-gray-300">|</span>
-              <a href="#" className="text-gray-600 hover:text-[#0A3700] transition">
+              <a href="/terms" className="text-gray-600 hover:text-[#0A3700] transition">
                 Terms & Conditions
               </a>
               <span className="text-gray-300">|</span>

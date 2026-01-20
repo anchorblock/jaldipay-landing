@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <header className="z-30 w-full py-4">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -16,14 +19,97 @@ export default function Header() {
             </Link>
           </div>
 
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8">
+            <Link
+              href="/"
+              className="text-sm font-medium text-gray-600 hover:text-[#0A3700] transition"
+            >
+              Home
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-gray-600 hover:text-[#0A3700] transition"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/terms"
+              className="text-sm font-medium text-gray-600 hover:text-[#0A3700] transition"
+            >
+              Terms
+            </Link>
+          </nav>
+
           {/* Get Started button */}
-          <a
-            href="https://cal.com/shatil-ab/30min"
-            className="rounded-full bg-[#0A3700] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#0A3700]/90"
-          >
-            Get Started
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://cal.com/shatil-ab/30min"
+              className="rounded-full bg-[#0A3700] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#0A3700]/90"
+            >
+              Get Started
+            </a>
+
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="h-6 w-6 text-gray-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <nav className="md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+            <div className="flex flex-col gap-3">
+              <Link
+                href="/"
+                className="text-sm font-medium text-gray-600 hover:text-[#0A3700] transition py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/contact"
+                className="text-sm font-medium text-gray-600 hover:text-[#0A3700] transition py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Link
+                href="/terms"
+                className="text-sm font-medium text-gray-600 hover:text-[#0A3700] transition py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Terms
+              </Link>
+            </div>
+          </nav>
+        )}
       </div>
     </header>
   );

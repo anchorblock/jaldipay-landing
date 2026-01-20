@@ -7,6 +7,9 @@ import Hero from "@/components/hero-home";
 import FeaturesHighlight from "@/components/features-highlight";
 import FeatureSend from "@/components/feature-send";
 import FeatureAdd from "@/components/feature-add";
+import FeatureCards from "@/components/feature-cards";
+import FeatureRemittance from "@/components/feature-remittance";
+import Integrations from "@/components/integrations";
 import Stats from "@/components/stats";
 import FAQ from "@/components/faq";
 
@@ -17,6 +20,9 @@ export default function Home() {
       <FeaturesHighlight />
       <FeatureSend />
       <FeatureAdd />
+      <FeatureCards />
+      <FeatureRemittance />
+      <Integrations />
       <Stats />
       <FAQ />
     </>
