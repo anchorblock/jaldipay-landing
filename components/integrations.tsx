@@ -19,14 +19,20 @@ const integrationPartners = [
     logo: "https://images.g2crowd.com/uploads/product/image/ff99b35fef9c6e274d51cab6406a7623/zerohash.png",
     className: "h-12 w-40",
   },
+  {
+    name: "bKash",
+    description: "Mobile Wallet Support",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILJjwdVCygsxfLOoAPUgjE8ubYY8riy35RQ&s",
+    className: "h-20 w-40",
+  },
 ];
 
-const officialPartner = {
-  name: "bKash",
-  description: "Official local off-ramp partner for seamless mobile wallet payouts",
-  logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSILJjwdVCygsxfLOoAPUgjE8ubYY8riy35RQ&s",
-  className: "h-12 w-40"
-};
+// const officialPartner = {
+//   name: "bKash",
+//   description: "Official local off-ramp partner for seamless mobile wallet payouts",
+//   logo: "",
+//   className: "h-12 w-40"
+// };
 
 export default function Integrations() {
   return (
@@ -46,7 +52,7 @@ export default function Integrations() {
         </div>
 
         {/* Integration Partners Grid */}
-        <div className="grid gap-6 md:grid-cols-3 mb-12">
+        <div className="grid gap-6 md:grid-cols-4 mb-12">
           {integrationPartners.map((partner) => (
             <div
               key={partner.name}
@@ -69,7 +75,7 @@ export default function Integrations() {
         </div>
 
         {/* Official Partner - bKash */}
-        <div className="rounded-2xl border-2 border-[#9EE86F] bg-gradient-to-br from-[#9EE86F]/10 to-white p-8 md:p-10">
+        {/* <div className="rounded-2xl border-2 border-[#9EE86F] bg-gradient-to-br from-[#9EE86F]/10 to-white p-8 md:p-10">
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex h-28 w-56 shrink-0 items-center justify-center rounded-xl bg-white p-4 shadow-sm">
               <Image
@@ -95,7 +101,7 @@ export default function Integrations() {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Trust indicators */}
         <div className="mt-12 grid gap-6 md:grid-cols-4">
