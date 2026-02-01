@@ -33,13 +33,18 @@ export default function FeatureAdd() {
             <p className="mt-6 text-gray-600 max-w-md">
               Multiple deposit methods including bank transfer, cards, and digital wallets. Fund your account in seconds with minimal fees.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              {/* <a
-                href="https://cal.com/shatil-ab/30min"
-                className="inline-flex items-center rounded-full bg-[#0A3700] px-6 py-3 text-sm font-medium text-white transition hover:bg-[#0A3700]/90"
-              >
-                Get Started
-              </a> */}
+
+            {/* Yield Feature */}
+            <div className="mt-8 inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#9EE86F]/20 to-[#9EE86F]/5 border border-[#9EE86F]/30 px-5 py-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#9EE86F]/30">
+                <svg className="h-5 w-5 text-[#0A3700]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div>
+                <span className="text-lg font-bold text-[#0A3700]">Earn Yield</span>
+                <p className="text-sm text-gray-600">Your balance works for you</p>
+              </div>
             </div>
           </div>
         </div>
