@@ -45,9 +45,22 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <a
               href="https://cal.com/shatil-ab/30min"
-              className="rounded-full bg-[#0A3700] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#0A3700]/90"
+              className="btn-cta-primary"
             >
               Get Started
+              <svg
+                className="btn-arrow w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
             </a>
 
             {/* Mobile menu button */}
