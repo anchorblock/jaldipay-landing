@@ -1,0 +1,47 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy files to EC2
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.EC2_HOST }}
+          REMOTE_USER: ${{ secrets.EC2_USER }}
+          TARGET: ${{ secrets.EC2_TARGET_DIR }}
+          EXCLUDE: ".git, .github, node_modules, .next"
+
+      - name: Deploy with Docker
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.EC2_TARGET_DIR }}
+
+            # Create .env file
+            cat > .env << EOF
+            GMAIL_USER=${{ secrets.GMAIL_USER }}
+            GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}
+            EOF
+
+            # Build and deploy
+            docker compose down
+            docker compose build --no-cache
+            docker compose up -d
+
+            # Cleanup old images
+            docker image prune -f
