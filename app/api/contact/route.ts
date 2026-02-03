@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     // Send email
     await transporter.sendMail({
       from: `JaldiPay Contact <${process.env.GMAIL_USER}>`,
-      to: "shatil@anchorblock.vc",
+      to: "faruk@jaldipay.com",
       replyTo: email,
       subject: `[JaldiPay] ${subjectText} from ${name}`,
       html: `<h2>New Contact Form Submission</h2>
