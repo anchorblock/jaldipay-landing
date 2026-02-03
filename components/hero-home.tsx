@@ -22,6 +22,9 @@ const CURRENCIES = {
   INR: { flag: "🇮🇳", name: "Indian Rupee", symbol: "₹" },
 };
 
+// Simulated bank rates (typically 3-5% worse than market rate)
+const BANK_MARGIN = 0.035; // 3.5% margin
+
 const SOURCE_CURRENCIES = ["USD", "EUR", "GBP"] as const;
 const DEST_CURRENCIES = ["AED", "SAR", "QAR", "KWD", "SGD", "MYR", "IDR", "BDT", "INR"] as const;
 
@@ -63,6 +66,9 @@ export default function HeroHome() {
   }, [sourceCurrency, destCurrency, fetchExchangeRate]);
 
   const recipientAmount = sendAmount * exchangeRate;
+  const bankRate = exchangeRate * (1 - BANK_MARGIN);
+  const bankAmount = sendAmount * bankRate;
+  const savings = recipientAmount - bankAmount;
 
   const formatNumber = (num: number, decimals: number = 2) => {
     return num.toLocaleString("en-US", {
@@ -82,21 +88,30 @@ export default function HeroHome() {
   };
 
   return (
-    <section className="bg-gray-50">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section className="relative bg-gray-50 overflow-hidden">
+      {/* Animated Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#9EE86F]/20 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute top-1/2 -left-20 w-60 h-60 bg-[#9EE86F]/15 rounded-full blur-3xl animate-float-medium"></div>
+        <div className="absolute bottom-20 right-1/4 w-40 h-40 bg-[#0A3700]/10 rounded-full blur-2xl animate-float-fast"></div>
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="py-12 md:py-20">
           <div className="grid gap-12 md:grid-cols-2 md:gap-8 items-center">
             {/* Left content */}
             <div>
               <h1
-                className="text-4xl font-bold tracking-tight text-[#0A3700] md:text-5xl lg:text-6xl"
+                className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
                 data-aos="fade-up"
               >
-                SEND MONEY
+                <span className="text-[#0A3700]">SEND MONEY</span>
                 <br />
-                GLOBALLY
+                <span className="bg-gradient-to-r from-[#0A3700] via-[#9EE86F] to-[#0A3700] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x">
+                  GLOBALLY
+                </span>
                 <br />
-                FOR LESS
+                <span className="text-[#0A3700]">FOR LESS</span>
               </h1>
               <p
                 className="mt-6 text-lg text-gray-600"
@@ -108,19 +123,61 @@ export default function HeroHome() {
               <div className="mt-8 flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay={400}>
                 <a
                   href="https://cal.com/shatil-ab/30min"
-                  className="inline-flex items-center rounded-full bg-[#0A3700] px-8 py-4 text-base font-medium text-white transition hover:bg-[#0A3700]/90"
+                  className="btn-cta-primary btn-cta-glow px-8 py-4 text-base"
                 >
                   Get Started
+                  <svg
+                    className="btn-arrow w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
                 </a>
               </div>
+
+              {/* Trust Badges */}
+              <div className="mt-8 flex flex-wrap items-center gap-6" data-aos="fade-up" data-aos-delay={500}>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#9EE86F]/20">
+                    <svg className="h-5 w-5 text-[#0A3700]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Bank-Grade Security</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#9EE86F]/20">
+                    <svg className="h-5 w-5 text-[#0A3700]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Licensed & Regulated</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#9EE86F]/20">
+                    <svg className="h-5 w-5 text-[#0A3700]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">Instant Transfers</span>
+                </div>
+              </div>
+
               {/* Supported corridors preview */}
-              <div className="mt-8" data-aos="fade-up" data-aos-delay={500}>
+              <div className="mt-8" data-aos="fade-up" data-aos-delay={600}>
                 <p className="text-sm text-gray-500 mb-3">Popular destinations</p>
                 <div className="flex flex-wrap gap-2">
                   {DEST_CURRENCIES.slice(0, 6).map((code) => (
                     <span
                       key={code}
-                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm border border-gray-200"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-sm border border-gray-200 hover:border-[#9EE86F] hover:bg-[#9EE86F]/5 transition-colors cursor-default"
                     >
                       <span>{CURRENCIES[code].flag}</span>
                       <span className="text-gray-700">{code}</span>
@@ -132,7 +189,7 @@ export default function HeroHome() {
 
             {/* Right content - Interactive Corridor Selector */}
             <div
-              className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg"
+              className="rounded-2xl border border-gray-200 bg-white p-6 shadow-lg relative"
               data-aos="fade-up"
               data-aos-delay={300}
             >
@@ -254,11 +311,30 @@ export default function HeroHome() {
                 </div>
               </div>
 
+              {/* Savings Comparison */}
+              {sendAmount > 0 && (
+                <div className="mb-4 rounded-lg border border-[#9EE86F]/50 bg-[#9EE86F]/10 p-3">
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="h-5 w-5 text-[#0A3700]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm font-semibold text-[#0A3700]">
+                      You save {formatNumber(savings, 0)} {destCurrency}
+                    </span>
+                  </div>
+                  <div className="text-xs text-gray-600">
+                    <span className="line-through text-gray-400">Bank rate: {formatNumber(bankRate, 4)}</span>
+                    <span className="mx-2">•</span>
+                    <span className="text-[#0A3700] font-medium">JaldiPay: {formatNumber(exchangeRate, 4)}</span>
+                  </div>
+                </div>
+              )}
+
               {/* Refresh button */}
               <button
                 onClick={fetchExchangeRate}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-2 rounded-lg bg-[#0A3700] py-3 text-sm font-medium text-white transition hover:bg-[#0A3700]/90 disabled:opacity-50"
+                className="btn-cta-primary w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none"
               >
                 <svg
                   className={`h-4 w-4 ${isLoading ? "animate-spin" : ""}`}
