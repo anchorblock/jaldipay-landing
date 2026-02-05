@@ -19,7 +19,7 @@ export default function Footer() {
               </p>
 
               {/* Social Links */}
-              <div className="mt-6 flex items-center gap-4">
+              {/* <div className="mt-6 flex items-center gap-4">
                 <a
                   href="https://www.linkedin.com/company/anchorblock/"
                   target="_blank"
@@ -51,7 +51,7 @@ export default function Footer() {
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                   </svg>
                 </a>
-              </div>
+              </div> */}
             </div>
 
             {/* Services Column */}
@@ -93,11 +93,11 @@ export default function Footer() {
                     Contact
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <a href="https://anchorblock.vc" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-600 hover:text-[#0A3700] transition">
                     Anchorblock
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
 
@@ -132,7 +132,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <a href="mailto:faruk@jaldipay.com" className="text-sm text-gray-600 hover:text-[#0A3700] transition break-all">
-                    faruk@jaldipay.com
+                    info@jaldipay.com
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
@@ -151,11 +151,7 @@ export default function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             {/* Copyright */}
             <p className="text-sm text-gray-500">
-              &copy; {new Date().getFullYear()} JaldiPay. Powered by{" "}
-              <a href="https://anchorblock.vc" target="_blank" rel="noopener noreferrer" className="text-[#0A3700] hover:underline">
-                Anchorblock
-              </a>
-              . All rights reserved.
+              &copy; {new Date().getFullYear()} JaldiPay. All rights reserved.
             </p>
 
             {/* Payment methods */}

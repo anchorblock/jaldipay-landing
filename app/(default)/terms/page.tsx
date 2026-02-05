@@ -162,7 +162,7 @@ export default function TermsPage() {
               </p>
               <div className="mt-4 p-4 bg-gray-50 rounded-lg">
                 <p className="text-gray-700">
-                  <strong>Email:</strong> faruk@jaldipay.com
+                  <strong>Email:</strong> info@jaldipay.com
                 </p>
               </div>
             </section>
