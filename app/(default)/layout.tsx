@@ -1,31 +1,20 @@
-"use client";
-
-import { useEffect } from "react";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-import Footer from "@/components/ui/footer";
+import Navbar from "@/components/navbar";
+import FooterNew from "@/components/footer-new";
+import ExchangeCalculator from "@/components/exchange-calculator";
+import ChatWidget from "@/components/chat-widget";
 
 export default function DefaultLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  useEffect(() => {
-    AOS.init({
-      once: true,
-      disable: "phone",
-      duration: 600,
-      easing: "ease-out-sine",
-    });
-  });
-
   return (
     <>
+      <Navbar />
       <main className="relative flex grow flex-col">{children}</main>
-
-      <Footer />
+      <FooterNew />
+      <ExchangeCalculator />
+      <ChatWidget />
     </>
   );
 }

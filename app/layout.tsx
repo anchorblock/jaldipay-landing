@@ -1,46 +1,18 @@
 import "./css/style.css";
 
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Poppins } from "next/font/google";
 
-import Header from "@/components/ui/header";
-
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const nacelle = localFont({
-  src: [
-    {
-      path: "../public/fonts/nacelle-regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/nacelle-italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "../public/fonts/nacelle-semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/nacelle-semibolditalic.woff2",
-      weight: "600",
-      style: "italic",
-    },
-  ],
-  variable: "--font-nacelle",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
 export const metadata = {
-  title: "JaldiPay - Global Money Transfers",
-  description: "Fast, secure money transfers to 50+ countries. Send to UAE, Singapore, Malaysia, Saudi Arabia and more with competitive rates.",
+  title: "JaldiPay - Change the way you transfer money",
+  description:
+    "JaldiPay makes transferring money as easy and secure as moving data. Send money to 50+ countries with near-zero fees using stablecoin payment rails.",
 };
 
 export default function RootLayout({
@@ -51,10 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-800 antialiased`}
+        className={`${poppins.variable} bg-black font-poppins text-base text-white antialiased`}
       >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
           {children}
         </div>
       </body>

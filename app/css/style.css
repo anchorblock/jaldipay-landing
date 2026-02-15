@@ -2,48 +2,13 @@
 
 /* Additional styles */
 @import './additional-styles/utility-patterns.css' layer(components);
-@import './additional-styles/theme.css';
 
 @plugin "@tailwindcss/forms" {
   strategy: base;
 }
 
-@keyframes infinite-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-infinite-carousel {
-  animation: infinite-scroll 25s linear infinite;
-}
-
-.animate-infinite-carousel:hover {
-  animation-play-state: paused;
-}
-
-/* Add a mask for smooth fade effect on carousel edges only */
-.carousel-mask {
-  mask-image: linear-gradient(to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent 100%
-  );
-}
-
 @theme {
-  --font-inter: var(--font-inter), sans-serif;
-  --font-nacelle: var(--font-nacelle), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
 
   --text-xs: 0.8125rem;
   --text-xs--line-height: 1.5384;
@@ -76,45 +41,9 @@
   --text-7xl: 4.5rem;
   --text-7xl--line-height: 1;
   --text-7xl--letter-spacing: -0.0268em;
-
-  --animate-shine: shine 5s ease-in-out 500ms infinite;
-  --animate-gradient: gradient 6s linear infinite;
-
-  @keyframes shine {
-    0% {
-      top: 0;
-      transform: scaleY(5);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.8;
-    }
-    20% {
-      top: 100%;
-      transform: scaleY(10);
-      opacity: 0;
-    }
-    100% {
-      top: 100%;
-      transform: scaleY(1);
-      opacity: 0;
-    }
-  }
-  @keyframes gradient {
-    to {
-      background-position: 200% center;
-    }
-  }
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* Base border color compatibility */
 @layer base {
   *,
   ::after,
@@ -125,219 +54,141 @@
   }
 }
 
-/* CTA Button Animations */
-@keyframes btn-gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+/* ================================
+   COUNTRY FLAGS MARQUEE
+================================ */
+@keyframes scroll-flags {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-@keyframes btn-glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(158, 232, 111, 0), 0 4px 15px rgba(10, 55, 0, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(158, 232, 111, 0.3), 0 4px 20px rgba(10, 55, 0, 0.3);
-  }
+.animate-scroll-flags {
+  animation: scroll-flags 35s linear infinite;
 }
 
-@keyframes arrow-slide {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(4px);
-  }
-}
-
-.btn-cta-primary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: white;
-  background: linear-gradient(135deg, #0A3700 0%, #145200 25%, #0A3700 50%, #1a5c00 75%, #0A3700 100%);
-  background-size: 300% 300%;
-  border-radius: 9999px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(10, 55, 0, 0.2);
-}
-
-.btn-cta-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(158, 232, 111, 0.4), 0 8px 25px rgba(10, 55, 0, 0.3);
-  animation: btn-gradient-shift 3s ease infinite;
-}
-
-.btn-cta-primary:active {
-  transform: translateY(0);
-}
-
-.btn-cta-primary .btn-arrow {
-  transition: transform 0.3s ease;
-}
-
-.btn-cta-primary:hover .btn-arrow {
-  animation: arrow-slide 1s ease infinite;
-}
-
-/* Shine effect overlay */
-.btn-cta-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s ease;
-}
-
-.btn-cta-primary:hover::before {
-  left: 100%;
-}
-
-/* Secondary CTA Button */
-.btn-cta-secondary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #0A3700;
-  background: transparent;
-  border: 2px solid #9EE86F;
-  border-radius: 9999px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-cta-secondary:hover {
-  background: #9EE86F;
-  color: #0A3700;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(158, 232, 111, 0.4), 0 4px 15px rgba(158, 232, 111, 0.2);
-}
-
-.btn-cta-secondary:active {
-  transform: translateY(0);
-}
-
-/* Glow animation for special CTAs */
-.btn-cta-glow {
-  animation: btn-glow-pulse 2s ease-in-out infinite;
-}
-
-/* Small variant */
-.btn-cta-primary-sm {
-  padding: 0.5rem 1.25rem;
-  font-size: 0.8125rem;
-}
-
-/* Animated Background Orbs */
-@keyframes float-slow {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(10px, -20px) scale(1.05);
-  }
-  50% {
-    transform: translate(-5px, -10px) scale(0.95);
-  }
-  75% {
-    transform: translate(-15px, 5px) scale(1.02);
-  }
-}
-
-@keyframes float-medium {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(15px, 10px) scale(1.03);
-  }
-  66% {
-    transform: translate(-10px, -15px) scale(0.97);
-  }
-}
-
-@keyframes float-fast {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(20px, -10px) scale(1.1);
-  }
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-.animate-float-medium {
-  animation: float-medium 6s ease-in-out infinite;
-}
-
-.animate-float-fast {
-  animation: float-fast 4s ease-in-out infinite;
-}
-
-/* Gradient Text Animation */
-@keyframes gradient-x {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient-x {
-  animation: gradient-x 4s ease infinite;
-}
-
-/* Currency Marquee */
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee-scroll 30s linear infinite;
-}
-
-.animate-marquee:hover {
+.animate-scroll-flags:hover {
   animation-play-state: paused;
 }
 
-/* Marquee fade edges */
+/* ================================
+   PARTNER LOGOS SCROLL
+================================ */
+@keyframes scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-logos {
+  animation: scroll-logos 25s linear infinite;
+}
+
+.animate-scroll-logos:hover {
+  animation-play-state: paused;
+}
+
+/* ================================
+   PULSING GREEN DOT
+================================ */
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ================================
+   EXCHANGE CALC ARROW ROTATION
+================================ */
+@keyframes arrows-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-180deg); }
+}
+
+.animate-arrows-spin {
+  animation: arrows-spin 1.5s linear infinite;
+}
+
+/* ================================
+   TRANSFER BAND
+================================ */
+.transfer-band {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transfer-band.active {
+  transform: scaleX(1);
+}
+
+/* ================================
+   FEATURE CARD TRANSITIONS
+================================ */
+.feature-card {
+  transition: all 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.feature-card:hover {
+  filter: brightness(1) contrast(1);
+}
+
+.feature-card:not(:hover) {
+  filter: brightness(0.85) contrast(0.9);
+}
+
+.feature-cards-container:hover .feature-card:not(:hover) {
+  filter: brightness(0.85) contrast(0.9);
+}
+
+.feature-cards-container:not(:hover) .feature-card {
+  filter: brightness(1) contrast(1);
+}
+
+/* ================================
+   FAQ ACCORDION
+================================ */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 300px;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-icon.open {
+  transform: rotate(45deg);
+}
+
+/* ================================
+   COMPARISON TABLE
+================================ */
+.comparison-table {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.comparison-table.open {
+  max-height: 500px;
+}
+
+/* ================================
+   MARQUEE FADE EDGES
+================================ */
 .marquee-fade {
   mask-image: linear-gradient(
     to right,
@@ -353,4 +204,37 @@
     black 95%,
     transparent
   );
+}
+
+/* ================================
+   CAROUSEL MASK
+================================ */
+.carousel-mask {
+  mask-image: linear-gradient(to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* ================================
+   FLOATING WIDGET SCROLL BEHAVIOR
+================================ */
+.floating-widget {
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-widget.scrolled {
+  right: -8px;
+}
+
+.floating-widget.scrolled:hover {
+  right: 20px;
 }
