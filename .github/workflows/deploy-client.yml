@@ -1,9 +1,9 @@
-name: Deploy Demo (Master)
+name: Deploy Main Site (Client)
 
 on:
   push:
     branches:
-      - master
+      - client
   workflow_dispatch:
 
 jobs:
@@ -13,17 +13,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: client
 
-      - name: Copy app files to EC2 demo directory
+      - name: Copy app files to EC2 client directory
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.EC2_HOST }}
           REMOTE_USER: ${{ secrets.EC2_USER }}
-          TARGET: ${{ secrets.EC2_TARGET_DIR }}/demo
+          TARGET: ${{ secrets.EC2_TARGET_DIR }}/client
           EXCLUDE: ".git, .github, node_modules, .next"
 
-      - name: Deploy demo site
+      - name: Deploy main site
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -32,9 +34,12 @@ jobs:
           script: |
             cd ${{ secrets.EC2_TARGET_DIR }}
 
-            # Copy shared config files from demo to root
-            cp demo/docker-compose.yml ./docker-compose.yml
-            cp demo/Caddyfile ./Caddyfile
+            # Stop old containers and remove orphans (cleans up previous single-app setup)
+            docker compose down --remove-orphans || true
+
+            # Copy shared config files from client to root
+            cp client/docker-compose.yml ./docker-compose.yml
+            cp client/Caddyfile ./Caddyfile
 
             # Create .env file
             cat > .env << EOF
@@ -42,9 +47,8 @@ jobs:
             GMAIL_APP_PASSWORD=${{ secrets.GMAIL_APP_PASSWORD }}
             EOF
 
-            # Rebuild and restart demo app (and caddy to pick up config changes)
-            docker compose up -d --build app-demo
-            docker compose up -d caddy
+            # Build and start main app + caddy
+            docker compose up -d --build app-main caddy
 
             # Cleanup old images
             docker image prune -f

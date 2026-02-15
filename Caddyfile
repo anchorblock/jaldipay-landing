@@ -1,3 +1,7 @@
+demo.jaldipay.com {
+    reverse_proxy app-demo:3000
+}
+
 jaldipay.com, www.jaldipay.com {
-    reverse_proxy app:3000
+    reverse_proxy app-main:3000
 }

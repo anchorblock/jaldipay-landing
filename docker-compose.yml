@@ -1,6 +1,14 @@
 services:
-  app:
-    build: .
+  app-demo:
+    build: ./demo
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - web
+
+  app-main:
+    build: ./client
     restart: unless-stopped
     env_file:
       - .env
@@ -20,7 +28,12 @@ services:
     networks:
       - web
     depends_on:
-      - app
+      app-demo:
+        condition: service_started
+        required: false
+      app-main:
+        condition: service_started
+        required: false
 
 networks:
   web:
