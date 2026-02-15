@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,29 +34,15 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-12">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <svg
-            width={isScrolled ? 35 : 40}
-            height={isScrolled ? 35 : 40}
-            viewBox="0 0 40 40"
-            fill="none"
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/jaldipay-logo.svg"
+            alt="JaldiPay"
+            width={isScrolled ? 140 : 160}
+            height={isScrolled ? 29 : 33}
             className="transition-all duration-300"
-          >
-            <circle cx="20" cy="20" r="20" fill="#26db00" />
-            <text
-              x="50%"
-              y="55%"
-              dominantBaseline="middle"
-              textAnchor="middle"
-              fill="white"
-              fontSize="18"
-              fontWeight="700"
-              fontFamily="var(--font-poppins)"
-            >
-              JP
-            </text>
-          </svg>
-          <span className="text-lg font-semibold text-white">JaldiPay</span>
+            priority
+          />
         </Link>
 
         {/* Desktop Menu - Centered */}

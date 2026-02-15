@@ -34,11 +34,11 @@ const doubledCountries = [...countries, ...countries];
 export default function CountryFlagsMarquee() {
   return (
     <div className="marquee-fade overflow-hidden py-4">
-      <div className="animate-scroll-flags flex gap-6 whitespace-nowrap">
+      <div className="animate-scroll-flags flex items-center gap-6 whitespace-nowrap">
         {doubledCountries.map((country, i) => (
           <div
             key={`${country.code}-${i}`}
-            className="flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 backdrop-blur-sm"
+            className="inline-flex shrink-0 items-center gap-2.5 overflow-hidden rounded-full border border-white/10 bg-white/10 px-4 py-2.5"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -46,12 +46,11 @@ export default function CountryFlagsMarquee() {
               alt={country.name}
               width={24}
               height={16}
-              className="rounded-sm"
+              className="h-4 w-6 shrink-0 rounded-sm object-cover"
             />
-            <span className="text-xs font-medium text-white/80">
+            <span className="shrink-0 text-xs font-medium leading-none text-white/80">
               {country.name}
             </span>
-            <span className="text-[10px] text-white/40">{country.currency}</span>
           </div>
         ))}
       </div>

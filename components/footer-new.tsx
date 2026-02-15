@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   product: {
@@ -95,22 +96,13 @@ export default function FooterNew() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] md:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="20" fill="#26db00" />
-                <text
-                  x="50%"
-                  y="55%"
-                  dominantBaseline="middle"
-                  textAnchor="middle"
-                  fill="white"
-                  fontSize="18"
-                  fontWeight="700"
-                >
-                  JP
-                </text>
-              </svg>
-              <span className="text-lg font-semibold text-white">JaldiPay</span>
+            <div className="mb-4">
+              <Image
+                src="/images/jaldipay-logo.svg"
+                alt="JaldiPay"
+                width={140}
+                height={29}
+              />
             </div>
             <p className="text-sm text-white/50 leading-relaxed max-w-xs">
               Change the way you transfer money. Fast, secure, and affordable money transfers powered by stablecoin technology.

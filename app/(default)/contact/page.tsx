@@ -7,8 +7,36 @@ import ContactForm from "@/components/contact-form";
 
 export default function ContactPage() {
   return (
-    <section className="pt-32 pb-16 md:pb-24 bg-black">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+    <section className="relative min-h-screen overflow-hidden bg-black pt-32 pb-16 md:pb-24">
+      {/* Background Gradient */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(11, 43, 3, 0.7) 0%, rgba(0, 0, 0, 0.98) 70%)",
+        }}
+      />
+
+      {/* Decorative Glow */}
+      <div
+        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[800px] opacity-30"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(38, 219, 0, 0.15) 0%, transparent 70%)",
+        }}
+      />
+
+      {/* Grid Pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center mb-12">
           <span className="inline-block rounded-full bg-[#26db00]/20 px-4 py-1 text-sm font-medium text-[#26db00] mb-4">
             Contact Us
@@ -44,7 +72,7 @@ export default function ContactPage() {
             </div>
 
             {/* Business Hours */}
-            <div className="rounded-xl border border-white/10 bg-[#0b2b03] p-6">
+            <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm p-6">
               <h3 className="font-semibold text-white mb-4">Business Hours</h3>
               <div className="space-y-2 text-white/60">
                 <div className="flex justify-between">
