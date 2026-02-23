@@ -6,6 +6,7 @@ export const metadata = {
 
 import Hero from "@/components/hero";
 import FeatureCardsNew from "@/components/feature-cards-new";
+import CardVideoSection from "@/components/card-video-section";
 import GlobeSection from "@/components/globe-section";
 import StablecoinBand from "@/components/stablecoin-band";
 import SafetyBand from "@/components/safety-band";
@@ -18,6 +19,7 @@ export default function Home() {
       <FeatureCardsNew />
       <GlobeSection />
       <StablecoinBand />
+      <CardVideoSection />
       <SafetyBand />
       <FAQNew />
     </>
