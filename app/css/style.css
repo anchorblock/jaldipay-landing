@@ -114,6 +114,28 @@
 
 .animate-arrows-spin {
   animation: arrows-spin 1.5s linear infinite;
+  transform-origin: center;
+}
+
+/* Dollar/Taka symbol crossfade */
+@keyframes symbol-dollar {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes symbol-taka {
+  0%, 45% { opacity: 0; }
+  50%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-symbol-dollar {
+  animation: symbol-dollar 3s ease-in-out infinite;
+}
+
+.animate-symbol-taka {
+  animation: symbol-taka 3s ease-in-out infinite;
 }
 
 /* ================================

@@ -71,7 +71,7 @@ export default function ExchangeCalculator() {
     <>
       {/* FAB Button */}
       <div
-        className={`floating-widget fixed bottom-[60px] z-[901] ${
+        className={`floating-widget group fixed bottom-[60px] z-[901] ${
           isScrolled ? "scrolled" : ""
         }`}
         style={{ right: isScrolled ? undefined : "80px" }}
@@ -81,15 +81,26 @@ export default function ExchangeCalculator() {
           className="group flex h-[42px] w-[42px] items-center justify-center rounded-full shadow-[0_4px_16px_rgba(38,219,0,0.4)] transition-all hover:shadow-[0_6px_24px_rgba(38,219,0,0.5)] hover:-translate-y-0.5"
           style={{ background: "linear-gradient(135deg, #26db00 0%, #1fa600 100%)" }}
         >
-          {/* Rotating arrows icon */}
-          <svg className="h-5 w-5 text-white animate-arrows-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          {/* Animated arrows with dollar/taka crossfade */}
+          <svg className="h-7 w-7" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <g className="animate-arrows-spin" style={{ transformOrigin: "center" }}>
+              <path d="M48.91,141.41l-.55,18.07-17.52,2.19" fill="none" stroke="#3cfa0c" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M45.01,154.99c-30.37-30.37-30.37-79.61,0-109.98,25.62-25.62,64.66-29.63,94.48-12.02" fill="none" stroke="#3cfa0c" strokeWidth="6" strokeLinecap="round" strokeMiterlimit="33.33"/>
+              <path d="M151.09,58.59l.55-18.07,17.52-2.19" fill="none" stroke="#3cfa0c" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M154.99,45.01c30.37,30.37,30.37,79.61,0,109.98-25.62,25.62-64.66,29.63-94.48,12.02" fill="none" stroke="#3cfa0c" strokeWidth="6" strokeLinecap="round" strokeMiterlimit="33.33"/>
+            </g>
+            <path className="animate-symbol-dollar" d="M104.17,54.17v8.33c10,2.5,16.67,9.17,16.67,17.5h-10.83c0-4.17-3.33-7.5-9.17-7.5s-9.17,2.5-9.17,6.67c0,3.33,2.5,5,10.83,7.5,10.83,3.33,19.17,7.5,19.17,19.17,0,9.17-7.5,15.83-17.5,17.5v10h-8.33v-10c-10-1.67-17.5-9.17-17.5-19.17h10.83c0,5.83,4.17,9.17,10.83,9.17s10.83-2.5,10.83-7.5c0-4.17-3.33-5.83-11.67-8.33-10-3.33-18.33-8.33-18.33-18.33,0-9.17,7.5-15,15-16.67v-8.33h8.33Z" fill="#fff"/>
+            <g className="animate-symbol-taka" transform="translate(100,100) scale(0.85) translate(-97,-101)">
+              <path d="M126.87,105.71c0-.05,0-.11,0-.16-.02-1.89-.12-3.06-.48-4.26-2.03-9.18-10.21-15.47-19.98-16.05-5.12-.3-9.41.73-9.41.73v10.09l1.81-.47c1.34-.35,2.81-.53,4.35-.53,2.67,0,5.08.6,7.19,1.78,2.05,1.15,5.41,4.06,5.79,10.6.17,2.95-.44,5.57-1.32,7.81-.1.25-.21.5-.33.76,0,0,0,.02-.01.03h0c-1.97,4.31-5.86,6.98-10.15,6.98-3.95,0-7.56-2.26-9.67-6.04l-.14-.23-.14-.13c-1.05-2.06-1.65-4.63-1.78-7.58v-30.09h26.51v-9.48h-26.51v-15.29h-19.45v9.48h8.56v5.81h-8.56v9.48h8.56v30.64s.04.02.04.02c.21,4.44,1.25,8.41,3.1,11.83,2.12,3.92,5.1,6.99,8.85,9.13.57.32,1.09.61,1.67.91l.24.13c1.82.92,3.61,1.57,6.46,1.72.2.01.41.02.6.01h.41c.16.01.32.02.48.02,1.84,0,3.63-.25,5.29-.73,2.05-.54,4.08-1.38,6.04-2.5,3.75-2.14,6.73-5.21,8.85-9.13,2.09-3.87,3.15-8.43,3.15-13.54,0-.58,0-1.09,0-1.57,0-.05,0-.1,0-.16Z" fill="#fff"/>
+            </g>
           </svg>
         </button>
 
         {/* Label */}
-        <span className="mt-1 block text-center text-[9px] text-white/50">
-          Exchange
+        <span className="mt-1 block text-center text-[9px] text-[#26db00] font-semibold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none leading-[1.2] whitespace-nowrap">
+          Exchange Rate
+          <br />
+          Calculator
         </span>
       </div>
 
