@@ -45,14 +45,14 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             {/* Download the App */}
-            <button className="rounded-full border-2 border-white px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white hover:text-black md:px-8 md:py-4 md:text-base">
+            <button className="rounded-full border-2 border-white px-[36px] py-[12px] text-[12.96px] font-semibold text-white transition-all shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-white hover:text-[#333] hover:-translate-y-[3px]">
               Download the App
             </button>
 
             {/* Transfer Money */}
             <button
               onClick={() => setShowTransferBand(true)}
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-[#26db00] hover:text-white md:px-8 md:py-4 md:text-base"
+              className="rounded-full bg-white px-[36px] py-[12px] text-[12.96px] font-semibold text-[#333] transition-all hover:bg-[#26db00] hover:text-white hover:-translate-y-[3px]"
             >
               Transfer Money
             </button>

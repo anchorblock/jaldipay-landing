@@ -20,7 +20,7 @@ export default function ChatWidget() {
     <>
       {/* FAB Button */}
       <div
-        className={`floating-widget fixed bottom-[60px] z-[899] ${
+        className={`floating-widget group fixed bottom-[60px] z-[899] ${
           isScrolled ? "scrolled" : ""
         }`}
         style={{ right: isScrolled ? undefined : "132px" }}
@@ -33,7 +33,7 @@ export default function ChatWidget() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
           </svg>
         </button>
-        <span className="mt-1 block text-center text-[9px] text-white/50">
+        <span className="mt-1 block text-center text-[9px] text-[#26db00] font-semibold opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
           Chat
         </span>
       </div>
@@ -42,18 +42,17 @@ export default function ChatWidget() {
       {isOpen && (
         <div className="fixed top-[220px] right-[50px] z-[900] w-[460px] max-w-[calc(100vw-24px)] rounded-2xl bg-white/98 shadow-[0_20px_60px_rgba(0,0,0,0.2)] backdrop-blur-[20px]">
           {/* Header */}
-          <div className="flex items-center justify-between rounded-t-2xl bg-[#0b2b03] px-5 py-4">
+          <div className="flex items-center justify-between rounded-t-2xl bg-white px-5 py-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#26db00]">
-                <svg className="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-white">JaldiPay Support</span>
+              <svg className="h-6 w-6 text-[#0b2b03]" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="95" fill="#0b2b03"/>
+                <text x="100" y="115" textAnchor="middle" fill="#26db00" fontSize="60" fontWeight="bold" fontFamily="sans-serif">CC</text>
+              </svg>
+              <span className="text-sm font-medium text-black">Chat</span>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 text-white/60 hover:text-white"
+              className="p-1 text-gray-400 hover:text-gray-600"
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -64,8 +63,11 @@ export default function ChatWidget() {
           {/* Messages Area */}
           <div className="h-[180px] overflow-y-auto p-5">
             <div className="inline-block max-w-[80%] rounded-xl rounded-tl-sm bg-[#9eeb8e] px-4 py-3">
-              <p className="text-sm text-[#0b2b03]">
-                Welcome to JaldiPay! 👋 How can we help you today?
+              <p className="text-sm font-semibold text-[#0b2b03]">
+                Welcome to JaldiPay! 👋
+              </p>
+              <p className="text-[13px] text-[#0b2b03]/70 mt-1">
+                How can we help you today?
               </p>
             </div>
           </div>

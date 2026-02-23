@@ -48,20 +48,20 @@ const buttons: { key: TableKey; label: string }[] = [
 
 const statItems = [
   {
-    title: "Send Crypto, Receive Local Currency",
-    desc: "Seamless conversion between stablecoins and local fiat currencies",
+    title: "Send Crypto\nReceive Local Currency",
+    desc: "Enter the world of future payments. Hassle-free sending via trusted remittance operators.",
   },
   {
-    title: "Deposit through Multiple Methods",
-    desc: "Bank transfer, cards, mobile money, and crypto wallets",
+    title: "Deposit through\nMultiple Methods",
+    desc: "Choose what suits you. Bank transfer, cards and digital wallets or currency recipients",
   },
   {
-    title: "Get tax benefits for transfers",
-    desc: "Transparent records for tax reporting and compliance",
+    title: "Get tax benefits\nfor transfers",
+    desc: "Stablecoin rails bring informal remittance flows into transparent formal system",
   },
   {
-    title: "24/7 Global Availability",
-    desc: "Send and receive money anytime, anywhere in the world",
+    title: "Build\nForex Reserve",
+    desc: "For Bangladesh, Stablecoins solve structural problem of limited USD reserves",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function StablecoinBand() {
             payment rails
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-white/70">
-            Stablecoins are digital dollars and transfer money at the lowest cost on average.
+            <span className="text-white">Stablecoins are digital dollars and transfer money at the lowest cost on average.</span>{" "}
             They settle in seconds, work 24/7, and cost fractions of a taka per transaction.
             You could get up to 2.7% more on Jaldipay.*
           </p>
@@ -102,18 +102,18 @@ export default function StablecoinBand() {
         </div>
 
         {/* Comparison Table Buttons */}
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-10 flex flex-col gap-2">
           {buttons.map((btn) => (
             <button
               key={btn.key}
               onClick={() => toggleTable(btn.key)}
-              className={`rounded-full px-5 py-2.5 text-xs font-medium transition-all ${
+              className={`text-left text-sm transition-all flex items-center gap-2 ${
                 activeTable === btn.key
-                  ? "bg-[#26db00] text-white"
-                  : "border border-white/20 text-white/60 hover:border-[#26db00]/50 hover:text-white"
+                  ? "text-[#26db00]"
+                  : "text-white/60 hover:text-white"
               }`}
             >
-              {btn.label}
+              {btn.label} <span className="text-lg">›</span>
             </button>
           ))}
         </div>
@@ -160,7 +160,7 @@ export default function StablecoinBand() {
         <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {statItems.map((item) => (
             <div key={item.title} className="border-l border-[#26db00]/30 pl-4">
-              <h4 className="text-sm font-medium text-white">{item.title}</h4>
+              <h4 className="text-sm font-medium text-white whitespace-pre-line">{item.title}</h4>
               <p className="mt-1 text-xs text-white/50">{item.desc}</p>
             </div>
           ))}
@@ -174,26 +174,23 @@ export default function StablecoinBand() {
           onClick={() => setShowCryptoModal(false)}
         >
           <div
-            className="mx-4 max-w-lg rounded-2xl bg-white p-8"
+            className="mx-4 max-w-lg rounded-2xl bg-[#0b2b03] p-8 border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-lg font-semibold text-gray-900">
-              Crypto Disclosure
-            </h3>
-            <p className="mt-4 text-sm leading-relaxed text-gray-600">
-              JaldiPay uses stablecoin technology (USDC/USDT) as payment rails for international money transfers.
-              Stablecoins are digital currencies pegged 1:1 to the US dollar.
-              Users are not required to hold, buy, or manage any cryptocurrency.
-              All conversions happen automatically behind the scenes.
-              JaldiPay is not an investment platform and does not offer cryptocurrency trading services.
-              Transfer rates and fees may vary based on corridor, amount, and payment method.
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-white">
+                Crypto Disclosure
+              </h3>
+              <button
+                onClick={() => setShowCryptoModal(false)}
+                className="text-white/50 hover:text-white text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-sm leading-relaxed text-white/70">
+              JaldiPay facilitates transactions using stablecoin payment rails. Stablecoins are digital assets pegged to fiat currencies. Cryptocurrency values can fluctuate. The 2.7% savings estimate is based on average comparisons with traditional remittance providers and may vary depending on transaction size, corridor, and market conditions. Past performance does not guarantee future results. Users should conduct their own research before engaging in any cryptocurrency transactions. JaldiPay is not a licensed financial advisor. Please consult with qualified professionals for financial advice.
             </p>
-            <button
-              onClick={() => setShowCryptoModal(false)}
-              className="mt-6 rounded-lg bg-[#26db00] px-6 py-2 text-sm font-medium text-white transition-colors hover:bg-[#1fa600]"
-            >
-              Got it
-            </button>
           </div>
         </div>
       )}

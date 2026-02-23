@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 interface TransferBandProps {
   isOpen: boolean;
@@ -50,29 +51,32 @@ export default function TransferBand({ isOpen, onClose }: TransferBandProps) {
       <div className="flex items-center gap-3 px-6 py-3 md:gap-4 md:px-8 md:py-4">
         {/* From */}
         <div className="flex-1 min-w-0">
+          <label className="block text-[10px] font-medium text-white/80 mb-0.5">From</label>
           <input
             ref={inputRef}
             type="text"
-            placeholder="From (Account)"
-            className="w-full rounded-lg border-none bg-white/20 px-3 py-2 text-sm text-white placeholder-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+            placeholder="Your account"
+            className="w-full border-none bg-transparent px-0 py-1 text-[12.96px] text-white placeholder-white/60 focus:outline-none focus:text-[#c8ffc0]"
           />
         </div>
 
         {/* To */}
         <div className="flex-1 min-w-0">
+          <label className="block text-[10px] font-medium text-white/80 mb-0.5">To</label>
           <input
             type="text"
-            placeholder="To (Recipient)"
-            className="w-full rounded-lg border-none bg-white/20 px-3 py-2 text-sm text-white placeholder-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+            placeholder="Recipient"
+            className="w-full border-none bg-transparent px-0 py-1 text-[12.96px] text-white placeholder-white/60 focus:outline-none focus:text-[#c8ffc0]"
           />
         </div>
 
         {/* Amount */}
         <div className="flex-1 min-w-0">
+          <label className="block text-[10px] font-medium text-white/80 mb-0.5">Amount</label>
           <input
             type="text"
-            placeholder="Amount (BDT)"
-            className="w-full rounded-lg border-none bg-white/20 px-3 py-2 text-sm text-white placeholder-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+            placeholder="৳ 0.00"
+            className="w-full border-none bg-transparent px-0 py-1 text-[12.96px] text-white placeholder-white/60 focus:outline-none focus:text-[#c8ffc0]"
           />
         </div>
 
@@ -81,14 +85,20 @@ export default function TransferBand({ isOpen, onClose }: TransferBandProps) {
           Transfer
         </button>
 
+        {/* Sign Up Text */}
+        <span className="hidden md:inline text-[11px] text-white/70 whitespace-nowrap">
+          First time user?{" "}
+          <Link href="/signup" className="text-white underline hover:no-underline">
+            Sign up
+          </Link>
+        </span>
+
         {/* Close */}
         <button
           onClick={onClose}
           className="shrink-0 p-1 text-white/80 transition-colors hover:text-white"
         >
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          ✕
         </button>
       </div>
     </div>

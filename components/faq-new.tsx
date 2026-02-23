@@ -45,8 +45,10 @@ export default function FAQNew() {
   return (
     <section id="faq" className="bg-black border-t border-white/10 py-16 md:py-24">
       <div className="mx-auto max-w-[900px] px-6 md:px-12">
-        <h2 className="mb-12 text-center text-2xl font-extralight text-white md:text-4xl">
-          Frequently Asked Questions
+        <h2 className="mb-12 text-center text-2xl font-extralight text-white md:text-[41.2px] leading-[1.2]">
+          You&apos;ve got questions
+          <br />
+          We&apos;ve got answers
         </h2>
 
         <div className="divide-y divide-white/10">
@@ -64,20 +66,18 @@ export default function FAQNew() {
                   {faq.question}
                 </span>
                 <span
-                  className={`faq-icon ml-4 flex h-6 w-6 shrink-0 items-center justify-center text-white/50 ${
+                  className={`faq-icon ml-4 flex h-6 w-6 shrink-0 items-center justify-center text-[#26db00] text-xl font-light ${
                     openIndex === index ? "open" : ""
                   }`}
                 >
-                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                  </svg>
+                  +
                 </span>
               </button>
 
               <div
                 className={`faq-answer ${openIndex === index ? "open" : ""}`}
               >
-                <p className="pt-4 text-sm leading-relaxed text-white/60">
+                <p className="pt-4 text-[14.4px] leading-relaxed text-white/70">
                   {faq.answer}
                 </p>
               </div>

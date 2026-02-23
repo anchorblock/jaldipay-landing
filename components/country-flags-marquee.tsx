@@ -13,32 +13,19 @@ const countries = [
   { code: "sa", name: "Saudi Arabia", currency: "SAR" },
   { code: "qa", name: "Qatar", currency: "QAR" },
   { code: "kw", name: "Kuwait", currency: "KWD" },
-  { code: "ae", name: "UAE", currency: "AED" },
-  { code: "om", name: "Oman", currency: "OMR" },
-  { code: "bh", name: "Bahrain", currency: "BHD" },
-  { code: "np", name: "Nepal", currency: "NPR" },
-  { code: "lk", name: "Sri Lanka", currency: "LKR" },
-  { code: "mm", name: "Myanmar", currency: "MMK" },
-  { code: "jp", name: "Japan", currency: "JPY" },
-  { code: "kr", name: "South Korea", currency: "KRW" },
-  { code: "au", name: "Australia", currency: "AUD" },
-  { code: "ca", name: "Canada", currency: "CAD" },
-  { code: "de", name: "Germany", currency: "EUR" },
-  { code: "fr", name: "France", currency: "EUR" },
-  { code: "it", name: "Italy", currency: "EUR" },
 ];
 
 // Double the list for seamless infinite scroll
 const doubledCountries = [...countries, ...countries];
 
-export default function CountryFlagsMarquee() {
+export default function CountryFlagsMarquee({ inline }: { inline?: boolean }) {
   return (
     <div className="marquee-fade overflow-hidden py-4">
-      <div className="animate-scroll-flags flex items-center gap-6 whitespace-nowrap">
+      <div className={`animate-scroll-flags flex items-center gap-6 whitespace-nowrap ${inline ? "gap-4" : ""}`}>
         {doubledCountries.map((country, i) => (
           <div
             key={`${country.code}-${i}`}
-            className="inline-flex shrink-0 items-center gap-2.5 overflow-hidden rounded-full border border-white/10 bg-white/10 px-4 py-2.5"
+            className="inline-flex shrink-0 items-center gap-2.5 overflow-hidden rounded-full border border-white/10 bg-white/[0.18] px-3 py-1 backdrop-blur-[10px]"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -48,9 +35,14 @@ export default function CountryFlagsMarquee() {
               height={16}
               className="h-4 w-6 shrink-0 rounded-sm object-cover"
             />
-            <span className="shrink-0 text-xs font-medium leading-none text-white/80">
-              {country.name}
-            </span>
+            <div className="flex flex-col">
+              <span className="shrink-0 text-xs font-medium leading-tight text-white/80">
+                {country.name}
+              </span>
+              <span className="shrink-0 text-[10px] leading-tight text-white/50">
+                {country.currency}
+              </span>
+            </div>
           </div>
         ))}
       </div>

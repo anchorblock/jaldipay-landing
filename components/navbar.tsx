@@ -17,22 +17,20 @@ export default function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Products", href: "#products" },
-    { label: "Card", href: "#card" },
-    { label: "About Us", href: "#about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Features", href: "#features" },
+    { label: "How it works", href: "#how-it-works" },
+    { label: "Security", href: "#security" },
   ];
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
         isScrolled
-          ? "bg-black/95 py-4 shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
-          : "bg-transparent py-6"
+          ? "bg-black/95 py-[25px] shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
+          : "bg-transparent py-[35px]"
       }`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-12">
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-[50px]">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -46,12 +44,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu - Centered */}
-        <div className="hidden md:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden md:flex items-center gap-[50px] absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-white/80 transition-colors hover:text-[#26db00]"
+              className="text-[14.4px] font-normal text-white/80 transition-colors hover:text-[#26db00]"
             >
               {item.label}
             </Link>
@@ -60,16 +58,18 @@ export default function Navbar() {
 
         {/* Right Icons */}
         <div className="hidden md:flex items-center gap-4">
-          {/* Search */}
-          <button className="p-2 text-white/70 transition-colors hover:text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          {/* Login */}
+          <button className="p-2 text-white/70 transition-colors hover:text-[#26db00]">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
             </svg>
           </button>
-          {/* Login */}
-          <button className="p-2 text-white/70 transition-colors hover:text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          {/* Search */}
+          <button className="p-2 text-white/70 transition-colors hover:text-[#26db00]">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
             </svg>
           </button>
         </div>
